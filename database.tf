@@ -1,4 +1,4 @@
-resource "mysql_database" "3tier-db" {
+resource "mysql_database" "tt-db" {
   name = "3tier-aws-mysql-db"
 }
 
@@ -17,7 +17,7 @@ resource "random_string" "password" {
   lower = true
 }
 
-resource "aws_db_instance" "mysql-db" {
+resource "aws_db_instance" "mysql-db-server" {
   engine         = "mysql"
   engine_version = "5.6.17"
   instance_class = "db.t1.micro"

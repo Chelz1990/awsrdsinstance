@@ -6,7 +6,7 @@ resource "aws_vpc" "3tier_vpc" {
   cidr_block = "10.0.0.0/16"
 }
 
-resource "aws_security_group" "3tier-sg" {
+resource "aws_security_group" "tt-sg" {
   name        = "3tier-security-group"
   vpc_id      = local.vpc_id
 
@@ -22,7 +22,7 @@ resource "aws_security_group" "3tier-sg" {
   }
 }
 
-data "aws_internet_gateway" "3tier-gw" {
+data "aws_internet_gateway" "tt-gw" {
   filter {
     name   = "3tier-igw"
     values = local.vpc_id
