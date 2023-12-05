@@ -1,10 +1,3 @@
-resource "random_string" "login" {
-  length           = 8
-  special          = false
-  override_special = "/@£$"
-  upper            = false
-}
-
 resource "random_string" "password" {
   length           = 16
   special          = true
@@ -13,7 +6,7 @@ resource "random_string" "password" {
   lower = true
 }
 
-resource "aws_db_instance" "dbserver" {
+resource "aws_db_instance" "ttplaydbserver" {
   engine         = "mysql"
   engine_version = "5.7"
   allocated_storage    =  20
