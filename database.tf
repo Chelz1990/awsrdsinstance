@@ -1,3 +1,4 @@
+# create a random password
 resource "random_string" "password" {
   length           = 16
   special          = true
@@ -6,6 +7,7 @@ resource "random_string" "password" {
   lower = true
 }
 
+# create a database
 resource "aws_db_instance" "ttplaydbserver" {
   engine         = "mysql"
   engine_version = "5.7"
