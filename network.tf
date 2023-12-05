@@ -1,14 +1,10 @@
-locals {
-    vpc_id = aws_vpc.id
-}
-
 resource "aws_vpc" "tt-vpc" {
   cidr_block = "10.0.0.0/16"
 }
 
 resource "aws_security_group" "tt-sg" {
   name        = "3tier-security-group"
-  vpc_id      = local.vpc_id
+  vpc_id      = aws_vpc.tt-vpc.id
 
   dynamic "ingress" {
 
@@ -25,6 +21,6 @@ resource "aws_security_group" "tt-sg" {
 data "aws_internet_gateway" "tt-gw" {
   filter {
     name   = "3tier-igw"
-    values = local.vpc_id
+    values = aws_vpc.tt-vpc.id
   }
 }
