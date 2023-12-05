@@ -13,7 +13,7 @@ resource "random_string" "password" {
   lower = true
 }
 
-resource "aws_db_instance" "mysql-db-server" {
+resource "aws_db_instance" "dbserver" {
   engine         = "mysql"
   engine_version = "5.7"
   allocated_storage    =  20
