@@ -1,11 +1,14 @@
-cleanup:
+c:
 	find / -type d  -name ".terraform" -exec rm -rf {} \;
 
-app:
+a:
 	terraform apply -auto-approve
 
-del:
+d:
 	terraform destroy -auto-approve
 
-ini:
+i:
 	terraform init
+
+p:
+	terraform plan
