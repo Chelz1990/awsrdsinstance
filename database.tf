@@ -13,7 +13,6 @@ resource "aws_db_instance" "ttplaydbserver" {
   instance_class = "db.t2.micro"
   username       = "admin"
   password       = "${random_string.password.result}"
-  vpc_security_group_ids = ["${aws_security_group.tt-sg.id}"]
   skip_final_snapshot  = true
   publicly_accessible =  true
 }
