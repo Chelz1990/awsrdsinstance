@@ -1,4 +1,4 @@
-# Creating AWS RDS
+# AWS RDS Instance
 
 Creating an AWS RDS instance using Terraform.
 
