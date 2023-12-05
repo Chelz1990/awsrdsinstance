@@ -1,7 +1,3 @@
-resource "mysql_database" "tt-db" {
-  name = "3tier-aws-mysql-db"
-}
-
 resource "random_string" "login" {
   length           = 8
   special          = false
@@ -20,13 +16,11 @@ resource "random_string" "password" {
 resource "aws_db_instance" "mysql-db-server" {
   engine         = "mysql"
   engine_version = "5.6.17"
+  allocated_storage    =  20
   instance_class = "db.t1.micro"
   username       = "${random_string.login.result}"
   password       = "${random_string.password.result}"
+  vpc_security_group_ids = ["${aws_security_group.tt-sg.id}"]
+  skip_final_snapshot  = true
+  publicly_accessible =  true
 }
-
-#provider "mysql" {
-#  endpoint = ""
-#  username = "${random_string.login.result}"
-#  password = "${random_string.password.result}"
-#}
