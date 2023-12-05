@@ -2,7 +2,7 @@ locals {
     vpc_id = aws_vpc.id
 }
 
-resource "aws_vpc" "3tier_vpc" {
+resource "aws_vpc" "tt-vpc" {
   cidr_block = "10.0.0.0/16"
 }
 
