@@ -1,4 +1,4 @@
 variable "ingress_ports" {
-    type = list()
+    type = list
     default = [22, 8080, 443, 3306]
 }

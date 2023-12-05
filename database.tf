@@ -1,4 +1,4 @@
-resource "mysql_database" "3tier_db" {
+resource "mysql_database" "3tier-db" {
   name = "3tier-aws-mysql-db"
 }
 
@@ -17,7 +17,7 @@ resource "random_string" "password" {
   lower = true
 }
 
-resource "aws_db_instance" "default" {
+resource "aws_db_instance" "mysql-db" {
   engine         = "mysql"
   engine_version = "5.6.17"
   instance_class = "db.t1.micro"
@@ -25,8 +25,8 @@ resource "aws_db_instance" "default" {
   password       = "${random_string.password.result}"
 }
 
-provider "mysql" {
-  endpoint = ""
-  username = "${random_string.login.result}"
-  password = "${random_string.password.result}"
-}
+#provider "mysql" {
+#  endpoint = ""
+#  username = "${random_string.login.result}"
+#  password = "${random_string.password.result}"
+#}
