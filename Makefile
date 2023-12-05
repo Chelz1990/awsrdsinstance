@@ -18,3 +18,9 @@ i:
 
 p:
 	terraform plan
+
+r:
+	terraform refresh
+
+o: 
+	terraform output
